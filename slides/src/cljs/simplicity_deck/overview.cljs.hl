@@ -1,0 +1,9 @@
+(ns simplicity-deck.overview
+    (:require [hoplon.reveal :refer [intro bullet]]))
+
+
+(defn slides []
+  (intro :title "The Simplicity of Clojure"
+    (bullet "Clinton N. Dreisbach")
+    (bullet "Bridget Hillyer")
+    (bullet "OSCON 2014")))
