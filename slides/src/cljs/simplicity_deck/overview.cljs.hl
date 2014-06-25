@@ -1,9 +1,22 @@
 (ns simplicity-deck.overview
-    (:require [hoplon.reveal :refer [intro bullet]]))
-
+    (:require [hoplon.reveal :refer [intro bullet chapter slide]]))
 
 (defn slides []
   (intro :title "The Simplicity of Clojure"
     (bullet "Clinton N. Dreisbach")
     (bullet "Bridget Hillyer")
-    (bullet "OSCON 2014")))
+    (bullet "OSCON 2014"))
+  (chapter :title "Overview"
+    (slide :title "Agenda")
+    (slide :title "Why Clojure?")
+    (slide :title "REPL")
+    (slide :title "Syntax - Literals"
+      (ul
+        (li "1 2.7 22/7")
+        (li "false true")
+        (li "\\z")
+        (li "Candy Land")
+        (li "nil")
+        (li "board")
+        (li ":player1")
+        (li "#\"[0-9+]\"")))))

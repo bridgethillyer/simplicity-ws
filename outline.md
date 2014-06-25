@@ -83,7 +83,7 @@ _How is Clojure simple?_
 ## TODO
 
 * Research one project each that we can use to highlight/use for examples
-* Start slides
-* Create github repository
+* DONE Start slides
+* DONE Create github repository
 * Create issues for TODOs in github
 
