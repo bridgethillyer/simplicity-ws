@@ -80,10 +80,10 @@ _How is Clojure simple?_
 * Declarative instead of imperative
 
 
-## TODO
+## TODO Moved to: [Issues](https://github.com/bridgethillyer/simplicity-ws/issues) 
 
 * Research one project each that we can use to highlight/use for examples
 * DONE Start slides
 * DONE Create github repository
-* Create issues for TODOs in github
+* DONE - See [Issues](https://github.com/bridgethillyer/simplicity-ws/issues) Create issues for TODOs in github
 
