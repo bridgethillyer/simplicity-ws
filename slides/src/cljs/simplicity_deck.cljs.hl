@@ -2,6 +2,8 @@
       (:require [hoplon.reveal :refer [slideshow]]
                 [simplicity-deck.overview :as overview]
                 [simplicity-deck.collections :as collections]
+                [simplicity-deck.sequences :as sequences]
+                [simplicity-deck.model :as model]
                 [simplicity-deck.functions :as functions]
                 [simplicity-deck.protocols :as protocols]
                 [simplicity-deck.flow :as flow]
@@ -16,6 +18,8 @@
     (slideshow :theme "simple"
       (overview/slides)
       (collections/slides)
+      (sequences/slides)
+      (model/slides)
       (functions/slides)
       (protocols/slides)
       (flow/slides)

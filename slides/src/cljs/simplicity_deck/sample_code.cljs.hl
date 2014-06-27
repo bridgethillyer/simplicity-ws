@@ -2,23 +2,173 @@
     (:require [hoplon.reveal :refer [highlight]]))
 
 
-(defn get-simple-ring-app []
+(defn show-vectors []
   (highlight
     ;;{{
-    (ns request-echo
-      (:require [clojure.pprint :refer [pprint]]))
+    [1 2 3 4 5 6 7 8 9 10] 
+    []
+    ;;}}
+    ))
 
-    (defn handler
-      "Return the request as HTML."
-      ;; A request comes in the handler.
-      [request]
+(defn show-more-vectors []
+  (highlight
+    ;;{{
+    (vector? [3 6 9])
+    ;=> true
 
-      ;; The handler returns a response map.
-      {:status 200
-       :headers {"Content-Type" "text/html"}
-       :body (str "<h1>Request Echo</h1><pre>"
-                  (with-out-str (pprint request))
-                  "</pre>")})
+    (associative? [3 6 9])
+    ;=> true
+
+    (sequential? [3 6 9])
+    ;=> true
+
+    (vector 3 6 9)
+    ;=> [3 6 9]
+
+    (conj [3 6] 9)
+    ;=> [3 6 9]
+
+    (count [3 6 9])
+    ;=> 3
+
+    (nth [3 6 9] 1)
+    ;=> 6 
+
+    (first [3 6 9])
+    ;=> 3 
+    ;;}}
+    ))
+
+(defn show-lists []
+  (highlight
+    ;;{{
+    (1 2 3 4 5 6 7 8 9 10) 
+    ()
+    ;;}}
+    ))
+
+(defn show-more-lists []
+  (highlight
+    ;;{{
+    (list? (list 1 2 3))
+    => true
+
+    (sequential? (list 1 2 3))
+    => true
+
+    (associative? (list 1 2 3))
+    => false
+
+    (list 1 2 3)
+    => (1 2 3)
+
+    (cons 3 (list 1 2))
+    => (3 1 2)
+
+    (conj (list 1 2) 3)
+    => (3 1 2)
+
+    (count (list 1 2 3))
+    => 3
+
+    (first (list 1 2 3))
+    => 1
+
+    (rest (list 1 2 3))
+    => (2 3)
+    ;;}}
+    ))
+
+(defn show-maps []
+  (highlight
+    ;;{{
+    {:first-name "Eleanor"
+     :last-name "Peacock"}
+    {}
+    ;;}}
+    ))
+
+(defn show-more-maps []
+  (highlight
+    ;;{{
+    (map? {:first "Eleanor" :last "Peacock"})
+    ;=> true
+
+    (get {:first "Eleanor" :last "Peacock"} :first)
+    ;=> "Eleanor"
+
+    (get {:first "Eleanor"} :last :MISS)
+    => :MISS
+
+    (assoc {:first "Eleanor"} :last "Peacock")
+    ;=> {:first "Eleanor", :last "Peacock"}
+
+    (dissoc {:first "Eleanor" :last "Peacock"} :last)
+    ;=> {:first "Eleanor"}
+
+    (merge {:first "Eleanor"} {:last "Peacock"})
+    ;=> {:first "Eleanor", :last "Peacock"}
+
+    (count {:first "Eleanor" :last "Peacock"})
+    ;=> 2
+
+    (keys {:first "Eleanor" :last "Peacock"})
+    ;=> (:first :last)
+
+    (vals {:first "Eleanor" :last "Peacock"})
+    ;=> ("Eleanor" "Peacock")
+    ;;}}
+    ))
+
+(defn maps-as-functions []
+  (highlight
+    ;;{{
+    (:a {:a 1})
+    => 1
+    (:b {:a 1})
+    => nil
+    (:b {:a 1} :MISS)
+    => :MISS
+    ;;}}
+    ))
+
+(defn show-sets []
+  (highlight
+    ;;{{
+    #{"Library" "Billiard Room" "Conservatory"}
+    #{}
+    ;;}}
+    ))
+
+(defn show-more-sets []
+  (highlight
+    ;;{{
+    (set? #{1 2})
+    => true
+    
+    (sequential? #{1 2}) 
+    => false 
+    
+    (associative?#{1 2}) 
+    => false
+    
+    (set [1 2 3])
+    => #{1 2 3}
+    
+    (conj #{1 2} 3)
+    => #{1 2 3}
+    
+    (count #{1 2 3})
+    => 3
+    
+    (disj #{1 2 3} 3) 
+    => #{1 2} 
+
+    (contains?#{1 2} 1) 
+    => true
+    
+    (:a #{:a :b})
+    => :a
     ;;}}
     ))
 

@@ -21,8 +21,10 @@
     * Lists 
     * Maps - look at examples in Thinking in Data for this
     * Sets
-* Sequences
-    * Sequence abstractions
+#### Sequences
+* Sequence abstractions
+#### Modeling 
+* Model a Board Game exercise
     
 ### Functions
 * Call a function

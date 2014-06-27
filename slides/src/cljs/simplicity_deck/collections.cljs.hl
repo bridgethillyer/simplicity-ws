@@ -8,9 +8,7 @@
     (slide :title "Simple Collections"
       (ul
         (li "Immutability")
-        (li "Something else"))
-      (notes "Blah blee bla bla"
-             "Blah blah blah"))
+        (li "Heterogeneous")))
     (slide :title "Collection types in Clojure"
       (ul
         (li "Vectors")
@@ -18,8 +16,61 @@
         (li "Maps")
         (li "Sets"))
       (notes "Just 4 main collection types cover all of your needs."))
-    (slide :title "Vectors")
-    (slide :tilte "Lists")
-    (slide :title "Maps")
-    (slide :title "Sets")
-    (slide :title "Sequences")))
+    (slide :title "Vectors"
+      (ul
+        (li "Expandable, indexed list")
+        (li "Fast insert and indexed lookup operations")
+        (li "Syntax:"))
+      (sample-code/show-vectors)
+      (notes "AKA arrays."))
+    (slide :title "Vectors"
+      (sample-code/show-more-vectors)
+      (notes "Conj does not change the vector - it is immutable."
+             "Predicate functions (asscociative? etc) will start to look familiar"))
+    (slide :title "Lists"
+      (ul
+        (li "Linked list")
+        (li "Fast insert and remove (at end) operations")
+        (li "Syntax:"))
+      (sample-code/show-lists)
+      (notes "Linked list literals are not typical, so you probably don't have one in your language"
+             "Lisp does, though."
+             "Vectors much more commonly used in Clojure, unlike in Lisps where list is one of the basic building blocks."))
+    (slide :title "Lists"
+      (sample-code/show-more-lists)
+      (notes "Compare conj to conj with vectors."
+             "Note repeating predictate functions."))
+    (slide :title "Maps"
+      (ul
+        (li "Associative key-value map")
+        (li "Fast insert and find operations")
+        (li "Syntax:"))
+      (sample-code/show-maps)
+      (notes "AKA hashes, dictionaries, associative arrays."
+             "Useful to have keywords as keys, although not necessary."))
+    (slide :title "Maps"
+      (sample-code/show-more-maps)
+      (notes "Note the predicate functions."))
+    (slide :title "Maps"
+      (sample-code/maps-as-functions)
+      (notes "Keywords are good as map keys because you can use them as a function with a map argument to access the value."))
+    (slide :title "Sets"
+      (ul 
+        (li "No duplicates")
+        (li "Fast insert and contains operations")
+        (li "Syntax:"))
+      (sample-code/show-sets))
+    (slide :title "Sets"
+      (sample-code/show-more-sets)
+      (notes "Again, note the familiar predicate functions."))
+    (slide :title "Sequences"
+      (ul
+        (li "A logical list abstraction")
+        (li "Applies to all collections")
+        (li "Immutable")
+        (li "Often lazy")
+        (li (pre (code "first, rest")))
+        (li (pre (code "seq"))))
+      (notes "Remember those functions that were called on each collection?"
+             "Those are from an abstraction called sequence, or seq in Clojure."
+             "The sequence abstraction provides a common interface to all of the collection types."))))
