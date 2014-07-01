@@ -243,3 +243,56 @@
       )
     ;;}}
     ))
+
+(defn clue-model []
+  (highlight
+    ;;{{
+    {:name "Clue"
+     :min-num-players   3
+     :max-num-players   6
+     :min-age           8
+     :subdomain         "Family Games"
+     :categories        ["Bluffing" "Deduction" "Murder/Mystery"]
+    }
+    ;;}}
+    ))
+
+(defn monopoly-model []
+  (highlight
+    ;;{{
+    {:name "Monopoly"
+     :min-num-players   2
+     :max-num-players   8 
+     :min-age           8
+     :subdomain         "Family Games"
+     :categories        ["Economic" "Negotiation"]
+    }
+    ;;}}
+    ))
+
+(defn candy-land-model []
+  (highlight
+    ;;{{
+    {:name "Candy Land"
+     :min-num-players   2 
+     :max-num-players   4 
+     :min-age           3 
+     :subdomain         "Children's Games"
+     :categories        ["Children's Game" "Racing"]
+    }
+    ;;}}
+    ))
+
+(defn board-games-model []
+  (highlight
+    ;;{{
+    (def clue {:name "Clue" ...})
+    (def monopoly {:name "Monopoly" ...})
+    ;; etc
+
+    (def board-games #{clue monopoly candy-land apples-to-apples
+                       settlers-of-catan dominion netrunner risk})
+     
+    ;; and, oh, so many more
+    ;;}}
+    ))
