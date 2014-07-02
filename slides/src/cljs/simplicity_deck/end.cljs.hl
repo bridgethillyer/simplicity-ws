@@ -1,0 +1,14 @@
+(ns simplicity-deck.examples
+    (:require [hoplon.reveal :refer [chapter]]))
+
+
+(defn slides []
+  (chapter :title "Finis"
+    (p "@cndreisbach at Twitter, Github, etc")
+    (p "clinton@dreisbach.us")
+    (p "http://prompt.sh")
+    (br)
+    (p "@bridgethillyer at Twitter, Github, etc.")
+    (p "bridget.hillyer@gmail.com")))
+    
+    

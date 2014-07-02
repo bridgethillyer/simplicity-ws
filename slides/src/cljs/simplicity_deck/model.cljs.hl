@@ -1,0 +1,23 @@
+(ns simplicity-deck.model
+    (:require [hoplon.reveal :refer [chapter slide notes bullet]]
+              [simplicity-deck.sample-code :as sample-code]))
+
+
+(defn slides []
+  (chapter :title "Modeling Data"
+    (slide :title "Modeling Board Games"
+      (notes "Let's model some well-known board games. "
+             "We won't use classes and objects. Instead we'll use collections."))
+    (slide :title "Clue"
+      (sample-code/clue-model)
+      (notes "Map with keywords and values.\n"
+             "http://boardgamegeek.com/"))
+    (slide :title "Monopoly"
+      (sample-code/monopoly-model))
+    (slide :title "Candy Land"
+      (sample-code/candy-land-model))
+    (slide :title "Board Games"
+      (sample-code/board-games-model)
+      (notes "Use a set to hold the board games. Why? What about ordering?\n"
+             ";; comment"))))
+             

@@ -1,0 +1,84 @@
+(ns simplicity-deck.sequences 
+    (:require [hoplon.reveal :refer [chapter slide notes bullet]]
+              [simplicity-deck.sample-code :as sample-code]))
+
+
+(defn slides []
+  (chapter :title "Sequences"
+    (slide :title "Simple Sequences"
+      (ul 
+        (li "Logical list abstraction")
+        (li "Applies to all collections")
+        (li "first, rest - first and rest of the logical list")
+        (li "seq - either a sequence with values, or nil")
+        (li "Can be lazy"))
+      (notes "Remember in the collections how we saw a number of the same "
+             "functions on each collection? That is because we have a "
+             "sequence (or seq) abstraction that gives an interface to "
+             " all of the collection types and other types of sequences "
+             "(e.g. strings)."))
+    (slide :title "first and rest"
+      (center
+      (table 
+      (tr
+        (th "list")
+        (th "first")
+        (th "rest"))
+      (tr
+        (td "(1 2 3)")
+        (td "1")
+        (td "(2 3)"))
+      (tr 
+        (td "(2 3)")
+        (td "2")
+        (td "(3)"))
+      (tr 
+        (td "(3)")
+        (td "3")
+        (td "()"))
+      (tr
+        (td "()")
+        (td "nil")
+        (td "()"))))
+      
+      (notes "Two operations in lists: first and rest. If you know of Lisp, "
+             "this will look familiar to you. You can also apply "
+             "these to vectors, maps, and sets."))
+  (slide :title "What else can be a sequence?"
+    (ul
+      (li "Collections")
+      (li "Strings")
+      (li "Arrays")
+      (li "file-seq")
+      (li "line-seq")
+      (li "resultset-seq")
+      (li "xml-seq")
+      (li "tree-seq")
+      (li "re-seq")
+      (li "iterator-seq")
+      (li "enumeration-seq")
+      (li "... or whatever you want to make a seq"))
+    (notes "Then you can use the SAME function over them."))
+  (slide :title "Sequence Functions"
+    (ul
+      (li (b "Create seq:") " seq, vals, keys, rseq, subseq, rsubseq, lazy-seq, repeatedly, iterate, repeat, range, keep, keep-indexed")
+      (li (b "Content tests:") " seq?, distinct?, every?, not-every?, not-any?, empty?, not-empty, some") 
+      (li (b "Get shorter:") " distinct, filter, remove, take-nth, for")
+      (li (b "Get longer:") " cons, conj, concat, lazy-cat, mapcat, cycle, interleave, interpose")
+      (li (b "Pull out members:") " first, ffirst, nfirst, second, nth, when-first, last, rand-nth")
+      (li (b "Get changed:") " conj, concat, distinct, flatten, group- by, partition, partition-all, partition-by, split- at, split-with, filter, remove, replace, shuffle")))
+  (slide :title "More Sequence Functions"
+    (ul
+      (li (b "Head-items:") " take, take-while, butlast, drop-last Tail-items: rest, nthrest, next, fnext, nnext, drop, drop-while, take-last, nthnext") 
+      (li (b "Rearrange:") " reverse, sort, sort-by, compare")
+      (li (b "Process items:")  " map, pmap, map-indexed, mapcat, for, replace, seque")
+      (li (b "Construct collection:") " zipmap, into, reduce, reductions, set, vec, into-array, to-array-2d, frequencies")
+      (li (b "Force evaluation:") " doseq, dorun, doall, realized?")))
+  (slide :title "Sequences: Code + Data"
+    (h2 "All of those sequences can be used with all of those functions!!"))
+  (slide :title "Sequence code example that illustrates using the same functions on different types of sequences")))
+         
+         
+         
+           
+            
