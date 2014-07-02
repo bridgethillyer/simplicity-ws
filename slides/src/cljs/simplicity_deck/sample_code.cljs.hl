@@ -224,33 +224,65 @@
 (defn show-cond []
   (highlight
     ;;{{
-    (cond
-      )
+    (let [min-age 12]
+      (cond
+        (>= min-age 18) "Adult game"
+        (>= min-age 8) "Family game"
+        (>= min-age 3) "Children's game"
+        :else "Toy, not a game"))
+    ;=> "Family game"
+    ;;}}
+    ))
 
+(defn truthiness []
+  (highlight
+    ;;{{
+    (true? true)
+    ;=> true
+
+    (false? false)
+    ;=> true
+
+    (nil? nil)
+    ;=> true
+
+    (true? 3)
+    ;=> false
+
+    (false? nil)
+    ;=> false
+
+    (true? (= 1 1))
+    ;=> true
     ;;}}
     ))
 
 (defn show-if []
   (highlight
     ;;{{
-    (if 
-      )
+    (if (> 3 1)
+        "3 is greater than 1"
+        "3 is not greater than 1")
+    ;=> "3 is greater than 1"
     ;;}}
     ))
 
 (defn show-loop []
   (highlight
     ;;{{
-    (loop 
-      )
+    (loop [x 21]
+      (when (> x 1)
+        (println x)
+        (recur (- x 3))))
     ;;}}
     ))
 
 (defn show-doseq []
   (highlight
     ;;{{
-    (doseq
-      )
+    (doseq [x [1 2 3]
+            y [1 2 3]]
+      (println (* x y)))
     ;;}}
     ))
 

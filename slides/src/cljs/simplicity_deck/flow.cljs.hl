@@ -5,7 +5,8 @@
 
 (defn slides []
   (chapter :title "Flow Control"
-    (slide :title "Truthiness")
+    (slide :title "Truthiness"
+      (sample-code/truthiness))
     (slide :title "cond"
       (sample-code/show-cond))
     (slide :title "if"
@@ -13,5 +14,6 @@
     (slide :title "loop"
       (sample-code/show-loop))
     (slide :title "doseq"
-      (sample-code/show-doseq))))
+      (sample-code/show-doseq)
+      (notes "For side effects"))))
 
