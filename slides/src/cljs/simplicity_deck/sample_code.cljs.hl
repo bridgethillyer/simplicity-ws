@@ -98,7 +98,7 @@
     ;=> "Eleanor"
 
     (get {:first "Eleanor"} :last :MISS)
-    => :MISS
+    ;=> :MISS
 
     (assoc {:first "Eleanor"} :last "Peacock")
     ;=> {:first "Eleanor", :last "Peacock"}
@@ -124,11 +124,11 @@
   (highlight
     ;;{{
     (:a {:a 1})
-    => 1
+    ;=> 1
     (:b {:a 1})
-    => nil
+    ;=> nil
     (:b {:a 1} :MISS)
-    => :MISS
+    ;=> :MISS
     ;;}}
     ))
 
@@ -144,31 +144,31 @@
   (highlight
     ;;{{
     (set? #{1 2})
-    => true
+    ;=> true
     
     (sequential? #{1 2}) 
-    => false 
+    ;=> false 
     
     (associative?#{1 2}) 
-    => false
+    ;=> false
     
     (set [1 2 3])
-    => #{1 2 3}
+    ;=> #{1 2 3}
     
     (conj #{1 2} 3)
-    => #{1 2 3}
+    ;=> #{1 2 3}
     
     (count #{1 2 3})
-    => 3
+    ;=> 3
     
     (disj #{1 2 3} 3) 
-    => #{1 2} 
+    ;=> #{1 2} 
 
     (contains?#{1 2} 1) 
-    => true
+    ;=> true
     
     (:a #{:a :b})
-    => :a
+    ;=> :a
     ;;}}
     ))
 
@@ -176,24 +176,34 @@
   (highlight
     ;;{{
     (println "Hello, friends!")
+    (+ 1 2)
+    (first (1 2 3))
     ;;}}
     ))
 
 (defn use-let []
   (highlight
     ;;{{
+    (let [x 4]
+      (* x 3))
+
     (let [x 1
           y 2]
-      (println "x + y = " (+ x y)))
+      (println x " + " y " = " (+ x y)))
     ;;}}
     ))
 
 (defn define-with-defn []
   (highlight
     ;;{{
-    (defn fun-fun 
-      []
-      (println "Hello from a function."))
+    (def triple 
+      (fn 
+        [x]
+        (* x 3)))
+
+    (defn triple
+      [x]
+      (* x 3))
     ;;}}
     ))
 

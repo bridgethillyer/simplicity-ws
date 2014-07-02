@@ -5,13 +5,21 @@
 
 (defn slides []
   (chapter :title "Functions"
-    (slide :title "Simple functions"
+    (slide :title "Simple Functions"
       (sample-code/call-a-function))
     (slide :title "Let"
       (sample-code/use-let))
     (slide :title "Define with defn"
       (sample-code/define-with-defn))
+    (slide :title "Family Game Night"
+      (p "Write a function to find all games that can be played by someone "
+         "age 8 and up. Apply to board-games set."))
     (slide :title "Higher order functions - map"
       (sample-code/show-map))
     (slide :title "Higher order functions - reduce"
-      (sample-code/show-reduce))))
+      (sample-code/show-reduce))
+    (slide :title "Family Game Night Redux"
+    
+      (p "Rewrite the previous exercise using map.")
+      (p "Write a function to find all games that can be played by someone "
+         "age 8 and up using " (b "map") ". Apply to board-games set."))))
