@@ -63,6 +63,9 @@
     (slide :title "Sets"
       (sample-code/show-more-sets)
       (notes "Again, note the familiar predicate functions."))
+    (slide :title "Who killed Mr. Boddy?"
+      (p "Choose and create the proper collection of suspects from the Clue board game. Then use nth to determine who goes third.")
+      (p "Bonus: Invite the third player to play by their first name."))
     (slide :title "Sequences"
       (ul
         (li "A logical list abstraction")
