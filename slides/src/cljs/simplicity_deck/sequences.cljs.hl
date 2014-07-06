@@ -9,8 +9,8 @@
       (ul 
         (li "Logical list abstraction")
         (li "Applies to all collections")
-        (li "first, rest - first and rest of the logical list")
-        (li "seq - either a sequence with values, or nil")
+        (li (code "first, rest") " - first and rest of the logical list")
+        (li (code "seq") " - either a sequence with values, or nil")
         (li "Can be lazy"))
       (notes "Remember in the collections how we saw a number of the same "
              "functions on each collection? That is because we have a "
@@ -69,7 +69,8 @@
       (li (b "Get changed:") " conj, concat, distinct, flatten, group- by, partition, partition-all, partition-by, split- at, split-with, filter, remove, replace, shuffle")))
   (slide :title "More Sequence Functions"
     (ul
-      (li (b "Head-items:") " take, take-while, butlast, drop-last Tail-items: rest, nthrest, next, fnext, nnext, drop, drop-while, take-last, nthnext") 
+      (li (b "Head-items:") " take, take-while, butlast, drop-last")
+      (li (b "Tail-items:") " rest, nthrest, next, fnext, nnext, drop, drop-while, take-last, nthnext") 
       (li (b "Rearrange:") " reverse, sort, sort-by, compare")
       (li (b "Process items:")  " map, pmap, map-indexed, mapcat, for, replace, seque")
       (li (b "Construct collection:") " zipmap, into, reduce, reductions, set, vec, into-array, to-array-2d, frequencies")

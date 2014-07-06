@@ -51,31 +51,31 @@
   (highlight
     ;;{{
     (list? (list 1 2 3))
-    => true
+    ;=> true
 
     (sequential? (list 1 2 3))
-    => true
+    ;=> true
 
     (associative? (list 1 2 3))
-    => false
+    ;=> false
 
     (list 1 2 3)
-    => (1 2 3)
+    ;=> (1 2 3)
 
     (cons 3 (list 1 2))
-    => (3 1 2)
+    ;=> (3 1 2)
 
     (conj (list 1 2) 3)
-    => (3 1 2)
+    ;=> (3 1 2)
 
     (count (list 1 2 3))
-    => 3
+    ;=> 3
 
     (first (list 1 2 3))
-    => 1
+    ;=> 1
 
     (rest (list 1 2 3))
-    => (2 3)
+    ;=> (2 3)
     ;;}}
     ))
 

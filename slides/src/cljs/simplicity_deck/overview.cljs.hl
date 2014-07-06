@@ -1,5 +1,6 @@
 (ns simplicity-deck.overview
-    (:require [hoplon.reveal :refer [intro bullet chapter slide]]))
+    (:require [hoplon.reveal :refer [intro bullet chapter slide]]
+              [simplicity-deck.sample-code :as sample-code]))
 
 (defn slides []
   (intro :title "The Simplicity of Clojure"
@@ -8,15 +9,21 @@
     (bullet "OSCON 2014"))
   (chapter :title "Overview"
     (slide :title "Agenda")
-    (slide :title "Why Clojure?")
-    (slide :title "REPL")
+    (slide :title "Why Clojure?"
+      (ul
+        (li "Simple")
+        (li "Immutable")
+        (li "Robust")))
+    (slide :title "Light Table Walkthrough")
     (slide :title "Syntax - Literals"
       (ul
-        (li (pre (code "1 2.7 22/7")))
-        (li (pre (code "false true")))
-        (li (pre (code "\\z")))
-        (li (pre (code "Candy Land")))
-        (li (pre (code "nil")))
-        (li (pre (code "board")))
-        (li (pre (code ":player1")))
-        (li (pre (code "#\"[0-9+]\"")))))))
+        (li (code "1 2.7 22/7"))
+        (li (code "false true"))
+        (li (code "\\z"))
+        (li (code "\"Monopoly\""))
+        (li (code "nil"))
+        (li (code "board"))
+        (li (code ":player1"))
+        (li (code "#\"[0-9+]\""))))
+    (slide :title "Functions"
+      (sample-code/call-a-function))))

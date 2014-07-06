@@ -69,8 +69,8 @@
         (li "Applies to all collections")
         (li "Immutable")
         (li "Often lazy")
-        (li (pre (code "first, rest")))
-        (li (pre (code "seq"))))
+        (li (code "first, rest"))
+        (li (code "seq")))
       (notes "Remember those functions that were called on each collection?"
              "Those are from an abstraction called sequence, or seq in Clojure."
              "The sequence abstraction provides a common interface to all of the collection types."))))
