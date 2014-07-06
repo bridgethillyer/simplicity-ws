@@ -364,3 +364,15 @@
     ;; and, oh, so many more
     ;;}}
     ))
+
+(defn player-model []
+  (highlight
+    ;;{{
+    (def dorian 
+      {:first           "Dorian"
+       :last            "Hayes"
+       :age             12
+       :fav-categories  ["Fantasy" "Humor"]
+       :type            "Player"})
+    ;;}}
+    ))

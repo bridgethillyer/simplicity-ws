@@ -27,5 +27,7 @@
     (slide :title "Board Game Modeling"
       (p "Create a model for your favorite board game.")
       (p "Define vars for each game and add to the board-games set.")
-      (p "Bonus: Model a game player."))))
+      (p "Bonus: Model a game player."))
+    (slide :title "Where is my object?"
+      (sample-code/player-model))))
              
