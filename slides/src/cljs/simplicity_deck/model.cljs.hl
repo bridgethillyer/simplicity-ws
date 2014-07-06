@@ -23,5 +23,9 @@
     (slide :title "Board Games"
       (sample-code/board-games-model)
       (notes "Use a set to hold the board games. Why? What about ordering?\n"
-             ";; comment"))))
+             ";; comment"))
+    (slide :title "Board Game Modeling"
+      (p "Create a model for your favorite board game.")
+      (p "Define vars for each game and add to the board-games set.")
+      (p "Bonus: Model a game player."))))
              
