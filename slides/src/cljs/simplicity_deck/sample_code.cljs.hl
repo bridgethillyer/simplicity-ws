@@ -325,6 +325,32 @@
     ;;}}
     ))
 
+(defn catan-model []
+  (highlight
+    ;;{{
+    {:name "The Settlers of Catan"
+     :min-num-players   3 
+     :max-num-players   4 
+     :min-age           10 
+     :subdomain         "Strategy Games"
+     :categories        ["Civilization" "Negotiation"]
+    }
+    ;;}}
+    ))
+
+(defn diplomacy-model []
+  (highlight
+    ;;{{
+    {:name "Diplomacy"
+     :min-num-players   2 
+     :max-num-players   7 
+     :min-age           12 
+     :subdomain         "Strategy Games"
+     :categories        ["Bluffing" "Negotiation" "Political" "Post-Napoleonic"]
+    }
+    ;;}}
+    ))
+
 (defn board-games-model []
   (highlight
     ;;{{
