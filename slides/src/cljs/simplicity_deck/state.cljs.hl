@@ -1,6 +1,7 @@
 (ns simplicity-deck.state
     (:require [hoplon.reveal :refer [chapter slide]]
-              [hoplon.util :as util]))
+              [hoplon.util :as util]
+              [simplicity-deck.sample-code :as sample-code]))
 
 
 (defn slides []
@@ -9,7 +10,17 @@
       (ul
         (li "There is state in Clojure.")
         (li "It is just managed in a sane way")))
-    (slide :title "Vars")
-    (slide :title "Atoms")
-    (slide :title "Refs")
-    (slide :title "Agents")))
+    (slide :title "Clojure Reference Types"
+      (ul
+        (li "Refs - coordinated, synchronous")
+        (li "Atoms - uncoordinated, synchronous")
+        (li "Agents - asynchronous")
+        (li "Vars - named and interned in a namespace")))
+    (slide :title "Monopoly Refs"
+      (sample-code/ref-example))
+    (slide :title "Atoms"
+      (sample-code/atom-example))
+    (slide :title "Diplomacy Agents"
+      (sample-code/agent-example))
+    (slide :title "Board Game Vars"
+      (sample-code/var-example))))

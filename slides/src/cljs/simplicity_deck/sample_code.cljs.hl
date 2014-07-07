@@ -376,3 +376,97 @@
        :type            "Player"})
     ;;}}
     ))
+
+(defn ref-example []
+  (highlight
+    ;;{{
+    (def bank (ref 0))
+    (def bank-props (ref #{"Baltic" "Park Place" "Boardwalk"}))
+    (def player (ref [{:money 1500
+                       :props #{}}]))
+
+    @bank
+    ;=> 0
+    @bank-props
+    ;=> #{"Baltic" "Boardwalk" "Park Place"}
+    @player
+    ;=. [{:money 1500, :props #{}}]
+     
+    (defn buy-property
+      [prop-name cost player-num]
+      (dosync 
+        (alter bank + cost)
+        (alter player update-in [player-num :money] - cost)
+        (alter bank-props disj prop-name)
+        (alter player update-in [player-num :props] conj prop-name)))
+
+    (buy-property "Baltic" 200 0)
+
+    @bank
+    ;=> 200
+    @bank-props
+    ;=> #{"Boardwalk" "Park Place"}
+    @player
+    ;=> [{:money 1300, :props #{"Baltic"}}]
+    ;;}}
+    ))
+
+(defn atom-example []
+  (highlight
+    ;;{{
+    (def player1 (atom {:brick 0 :lumber 1 :wool 1 :grain 0 :ore 0}))
+    (def player2 (atom {:brick 1 :lumber 0 :wool 1 :grain 0 :ore 0}))
+    (def player3 (atom {:brick 1 :lumber 0 :wool 0 :grain 2 :ore 0}))
+
+    (swap! player1 update-in [:lumber] inc)
+    (swap! player2 update-in [:grain] + 2)
+    (swap! player3 update-in [:grain] inc)
+
+    @player1
+    ;=> {:brick 0, :lumber 2, :wool 1, :grain 0, :ore 0}
+    @player2
+    ;=> {:brick 1, :lumber 0, :wool 1, :grain 2, :ore 0}
+    @player3
+    ;=> {:brick 1, :lumber 0, :wool 0, :grain 3, :ore 0}
+    ;;}}
+    ))
+
+(defn agent-example []
+  (highlight
+    ;;{{
+    (def p1 (agent []))
+    (def p2 (agent []))
+
+    @p1
+    ;=> []
+    @p2
+    ;=> []
+
+    (send p1 conj [:A "Hol-Bel"] [:A "Kie-Hol"] [:A "Smy-Arm"] [:A "Bud-Ser"] [:A "Tun-Wes"] [:F "Nap-Tys"] [:F "Por-Spa"])
+    (send p2 conj [:F "Nwy-StP"] [:F "Nth-Nwy"] [:A "Edi-Nth"] [:A "Ruh-Bur"] [:A "Bul-Rum"] [:A "Con-Bul"] [:F "Tri-Bud"] [:A "Wes-Mid"] [:F "TyS-Lyo"])
+
+    @p1
+    ;=> [[:A "Hol-Bel"] [:A "Kie-Hol"] [:A "Smy-Arm"] [:A "Bud-Ser"] [:A "Tun-Wes"] [:F "Nap-Tys"] [:F "Por-Spa"]]
+    @p2
+    ;=> [[:F "Nwy-StP"] [:F "Nth-Nwy"] [:A "Edi-Nth"] [:A "Ruh-Bur"] [:A "Bul-Rum"] [:A "Con-Bul"] [:F "Tri-Bud"] [:A "Wes-Mid"] [:F "TyS-Lyo"]]
+    ;;}}
+    ))
+
+(defn var-example []
+  (highlight
+    ;;{{
+    (ns games)
+
+    (def clue { ...
+    ;=> #'games/clue
+
+    (def monopoly { ...
+    ;=> #'games/monopoly
+
+    (def board-games #{ ...
+    ;=> #'games/board-games
+
+    (defn suggest-game [games min-age] ...
+    ;=> #'games/suggest-game
+    ;;}}
+    ))
