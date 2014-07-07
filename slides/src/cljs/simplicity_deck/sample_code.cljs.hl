@@ -390,7 +390,7 @@
     @bank-props
     ;=> #{"Baltic" "Boardwalk" "Park Place"}
     @player
-    ;=. [{:money 1500, :props #{}}]
+    ;=> [{:money 1500, :props #{}}]
      
     (defn buy-property
       [prop-name cost player-num]

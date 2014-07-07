@@ -18,9 +18,14 @@
         (li "Vars - named and interned in a namespace")))
     (slide :title "Monopoly Refs"
       (sample-code/ref-example))
-    (slide :title "Atoms"
+    (slide :title "Atoms of Catan"
       (sample-code/atom-example))
     (slide :title "Diplomacy Agents"
       (sample-code/agent-example))
     (slide :title "Board Game Vars"
-      (sample-code/var-example))))
+      (sample-code/var-example))
+    (slide :title "Shall we play a game?"
+      (p "Demonstrate the gameplay of Go Fish using the Clojure ref "
+         "reference type.")
+      (p "BONUS: Implement the gameplay of your favorite game "
+         "using the appropriate Clojure reference type."))))
