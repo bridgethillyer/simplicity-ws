@@ -457,16 +457,40 @@
     ;;{{
     (ns games)
 
-    (def clue { ...
+    (def clue { ... })
     ;=> #'games/clue
 
-    (def monopoly { ...
+    (def monopoly { ... })
     ;=> #'games/monopoly
 
-    (def board-games #{ ...
+    (def board-games #{ ... })
     ;=> #'games/board-games
 
-    (defn suggest-game [games min-age] ...
+    (defn suggest-game [games min-age] ... )
     ;=> #'games/suggest-game
     ;;}}
     ))
+
+(defn show-namespaces []
+  (highlight
+    ;;{{
+    (ns foo.bar.baz-quuz)
+    ;;}}
+    ))  
+
+(defn show-require []
+  (highlight
+    ;;{{
+    (ns my-ns
+      (:require clojure.set))
+
+    (clojure.set/union #{1 2} #{2 3 4}) 
+    ;;=> #{1 2 3 4}
+
+    (ns my-ns
+      (:require clojure.set :as set))
+
+    (set/union #{1 2} #{2 3 4}) 
+    ;;=> #{1 2 3 4}
+    ;;}}
+    )) 

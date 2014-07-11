@@ -9,7 +9,7 @@
                 [simplicity-deck.flow :as flow]
                 [simplicity-deck.state :as state]
                 [simplicity-deck.examples :as examples]
-                [simplicity-deck.extra :as extra]))
+                [simplicity-deck.extras :as extras]))
 
 
 (html
@@ -25,4 +25,5 @@
       (flow/slides)
       (state/slides)
       (examples/slides)
-      (extra/slides))))
+      (extras/slides))))
+      

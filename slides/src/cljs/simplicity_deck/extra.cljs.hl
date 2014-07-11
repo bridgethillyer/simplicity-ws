@@ -1,12 +1,31 @@
-(ns simplicity-deck.extra
-    (:require [hoplon.reveal :refer [chapter slide]]))
+(ns simplicity-deck.extras
+     (:require [hoplon.reveal :refer [chapter slide notes bullet]]
+               [simplicity-deck.sample-code :as sample-code]))
 
 
 (defn slides []
-  (chapter :title "Extra"
-    (slide :title "Concurrency")
-    (slide :title "Program Organization"
+  (chapter :title "Extras"
+    (slide :title "Concurrency"
       (ul
-          (li "Leiningen")
-          (li "Namespaces")))))
+        (li "Futures")
+        (li "Promises")))
+    (slide :title "Program Organization - Leiningen"
+      (ul
+        (li "Automates Clojure projects. Like Make for Clojure."
+        (li "Common commands"
+            (ul
+              (li "lein new app my-app")
+              (li "lein repl")
+              (li "lein test")
+              (li "lein run")
+              (li "lein uberjar"))))))
+    (slide :title "Program Organization - Namespaces"
+      (ul
+        (li (code "ns") " creates namespace and loads, aliases what you need")
+        (li "At top of file")
+        (li "Refers all of " (code "clojure.core"))
+        (li "Imports all of " (code "java.lang")))
+      (sample-code/show-namespaces))
+    (slide :title "Program Organization - Namespaces"
+      (sample-code/show-require))))
 
