@@ -2,12 +2,11 @@
     (:require [hoplon.reveal :refer [chapter slide notes bullet]]
               [simplicity-deck.sample-code :as sample-code]))
 
-
 (defn slides []
   (chapter :title "Functions"
     (slide :title "Simple Functions"
       (sample-code/call-a-function))
-    (slide :title "Let"
+    (slide :title "Assignment with let"
       (sample-code/use-let))
     (slide :title "Define with defn"
       (sample-code/define-with-defn))
@@ -18,8 +17,9 @@
       (sample-code/show-map))
     (slide :title "Higher order functions - reduce"
       (sample-code/show-reduce))
-    (slide :title "Family Game Night Redux"
-    
+    (slide :title "Higher order functions - implementing max with reduce"
+      (sample-code/show-reduce-max))
+    (slide :title "Family Game Night Redux"    
       (p "Rewrite the previous exercise using map.")
       (p "Write a function to find all games that can be played by someone "
          "age 8 and up using " (b "map") ". Apply to board-games set."))))
