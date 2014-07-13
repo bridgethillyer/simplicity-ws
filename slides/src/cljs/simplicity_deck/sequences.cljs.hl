@@ -2,6 +2,12 @@
     (:require [hoplon.reveal :refer [chapter slide notes bullet]]
               [simplicity-deck.sample-code :as sample-code]))
 
+(defn code-table [elements]
+  (table
+   (apply tr (map th (first elements)))
+   (for [row (rest elements)]
+     (apply tr (map (comp td code) row)))))
+
 
 (defn slides []
   (chapter :title "Sequences"
@@ -17,33 +23,26 @@
              "sequence (or seq) abstraction that gives an interface to "
              " all of the collection types and other types of sequences "
              "(e.g. strings)."))
+
     (slide :title "first and rest"
-      (center
-      (table 
-      (tr
-        (th "list")
-        (th "first")
-        (th "rest"))
-      (tr
-        (td "(1 2 3)")
-        (td "1")
-        (td "(2 3)"))
-      (tr 
-        (td "(2 3)")
-        (td "2")
-        (td "(3)"))
-      (tr 
-        (td "(3)")
-        (td "3")
-        (td "()"))
-      (tr
-        (td "()")
-        (td "nil")
-        (td "()"))))
-      
+       (center (code-table
+                [["list" "first" "rest"]
+                 ["(1 2 3)" "1" "(2 3)"]
+                 ["(2 3)" "2" "(3)"]
+                 ["(3)" "3" "()"]
+                 ["()" "nil" "()"]]))      
       (notes "Two operations in lists: first and rest. If you know of Lisp, "
              "this will look familiar to you. You can also apply "
              "these to vectors, maps, and sets."))
+
+    (slide :title "first and rest for all seqs"
+      (center
+       (code-table
+        [["seq" "first" "rest (seq, not list)"]
+         ["(1 2 3)" "1" "(2 3)"]
+         ["[1 2 3]" "1" "(2 3)"]
+         ["{:a 1 :b 2 :c 3}" "[:a 1]" "([:c 3] [:b 2])"]
+         ["#{3 1 2}" "1" "(2 3)"]])))
   (slide :title "What else can be a sequence?"
     (ul
       (li "Collections")
@@ -77,7 +76,20 @@
       (li (b "Force evaluation:") " doseq, dorun, doall, realized?")))
   (slide :title "Sequences: Code + Data"
     (h2 "All of those sequences can be used with all of those functions!!"))
-  (slide :title "Sequence code example that illustrates using the same functions on different types of sequences")))
+  (slide
+   :title "Lazy sequences"
+   (p "Sequences in Clojure are lazy, which delays evaluation until necessary.")
+   (sample-code/infinite-seq))
+  (slide
+   :title "What do we have for game night?"
+   (p "Your friends have brought over a bunch of games for game night. They are in three collections. Find out what the distinct games they have brought are, with no overlap.")
+   (ul
+    (li (code "(\"Clue\" \"Monopoly\" \"Catan\")"))
+    (li (code "[\"Catan\" \"7 Wonders\" \"Pandemic\" \"Risk\"]"))
+    (li (code "#{\"7 Wonders\" \"Robot Turtles\" \"Clue\"}")))
+   (p "Bonus: Make a function that can take a collection of collections of games and return the distinct games in the collection."))
+
+  ))
          
          
          

@@ -172,6 +172,26 @@
     ;;}}
     ))
 
+(defn infinite-seq []
+  (hlclj
+   ;;{{
+   (def integers (range))
+   (take 10 integers)
+   ; => (0 1 2 3 4 5 6 7 8 9)
+
+   (def gregory-leibniz
+     (map first
+          (iterate
+           (fn [[pi div]]
+             [(if (= 1 (mod div 4))
+                (+ pi (/ 4 div))
+                (- pi (/ 4 div)))
+              (+ div 2)]) [0.0 1])))
+   (first (drop 100 gregory-leibniz))
+   ; => ???
+   ;;}}
+   ))
+
 (defn call-a-function []
   (hlclj
     ;;{{
