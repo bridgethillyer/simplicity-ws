@@ -186,6 +186,7 @@
     ;;{{
     (let [x 4]
       (* x 3))
+    ;;=> 12
 
     (let [x 1
           y 2]
@@ -210,7 +211,8 @@
 (defn show-map []
   (highlight
     ;;{{
-    (map inc (range 1 10))
+    (map inc (range 1 10))    
+    ;;=> (2 3 4 5 6 7 8 9 10)
     ;;}}
     ))
 
@@ -218,6 +220,7 @@
   (highlight
     ;;{{
     (reduce + (range 1 10))
+    ;;=> 45
     ;;}}
     ))
 
