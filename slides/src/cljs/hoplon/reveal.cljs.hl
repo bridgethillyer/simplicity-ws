@@ -100,3 +100,9 @@
 (defelem highlight
   [attrs children]
   (pre (code attrs children)))
+
+(defelem hlclj
+  [attrs children]
+  (let [attrs (merge-with #(str %1 " " %2) attrs {:class "clojure"})]
+    (highlight attrs children)))
+

@@ -11,9 +11,13 @@
                 [simplicity-deck.examples :as examples]
                 [simplicity-deck.extras :as extras]))
 
+(when (= (-> js/window .-location .-search) "?dev")
+  (print "Autoreloading")
+  (reload-all))
 
 (html
-  (head)
+  (head
+   (link :rel "stylesheet" :href "style.css"))
   (body
     (slideshow :theme "simple"
       (overview/slides)
