@@ -5,7 +5,6 @@
             [compojure.handler :refer [site]]
             [org.httpkit.server :as httpd]))
 
-
 (defn- log [msg & vals]
   (let [line (apply format msg vals)]
     (locking System/out (println line))))

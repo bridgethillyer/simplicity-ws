@@ -1,9 +1,9 @@
 (ns simplicity-deck.sample-code
-    (:require [hoplon.reveal :refer [highlight]]))
+    (:require [hoplon.reveal :refer [hlclj highlight]]))
 
 
 (defn show-vectors []
-  (highlight
+  (hlclj
     ;;{{
     [1 2 3 4 5 6 7 8 9 10] 
     []
@@ -11,7 +11,7 @@
     ))
 
 (defn show-more-vectors []
-  (highlight
+  (hlclj :class "two-cols"
     ;;{{
     (vector? [3 6 9])
     ;=> true
@@ -40,7 +40,7 @@
     ))
 
 (defn show-lists []
-  (highlight
+  (hlclj
     ;;{{
     (1 2 3 4 5 6 7 8 9 10) 
     ()
@@ -48,7 +48,7 @@
     ))
 
 (defn show-more-lists []
-  (highlight
+  (hlclj
     ;;{{
     (list? (list 1 2 3))
     ;=> true
@@ -80,7 +80,7 @@
     ))
 
 (defn show-maps []
-  (highlight
+  (hlclj
     ;;{{
     {:first-name "Eleanor"
      :last-name "Peacock"}
@@ -89,7 +89,7 @@
     ))
 
 (defn show-more-maps []
-  (highlight
+  (hlclj
     ;;{{
     (map? {:first "Eleanor" :last "Peacock"})
     ;=> true
@@ -121,7 +121,7 @@
     ))
 
 (defn maps-as-functions []
-  (highlight
+  (hlclj
     ;;{{
     (:a {:a 1})
     ;=> 1
@@ -133,7 +133,7 @@
     ))
 
 (defn show-sets []
-  (highlight
+  (hlclj
     ;;{{
     #{"Library" "Billiard Room" "Conservatory"}
     #{}
@@ -141,7 +141,7 @@
     ))
 
 (defn show-more-sets []
-  (highlight
+  (hlclj
     ;;{{
     (set? #{1 2})
     ;=> true
@@ -173,7 +173,7 @@
     ))
 
 (defn call-a-function []
-  (highlight
+  (hlclj
     ;;{{
     (println "Hello, friends!")
     (+ 1 2)
@@ -182,7 +182,7 @@
     ))
 
 (defn use-let []
-  (highlight
+  (hlclj
     ;;{{
     (let [x 4]
       (* x 3))
@@ -195,7 +195,7 @@
     ))
 
 (defn define-with-defn []
-  (highlight
+  (hlclj
     ;;{{
     (def triple 
       (fn 
@@ -209,7 +209,7 @@
     ))
 
 (defn show-map []
-  (highlight
+  (hlclj
     ;;{{
     (map inc (range 1 10))    
     ;;=> (2 3 4 5 6 7 8 9 10)
@@ -217,7 +217,7 @@
     ))
 
 (defn show-reduce []
-  (highlight
+  (hlclj
     ;;{{
     (reduce + (range 1 10))
     ;;=> 45
@@ -225,7 +225,7 @@
     ))
 
 (defn show-cond []
-  (highlight
+  (hlclj
     ;;{{
     (let [min-age 12]
       (cond
@@ -238,7 +238,7 @@
     ))
 
 (defn truthiness []
-  (highlight
+  (hlclj
     ;;{{
     (true? true)
     ;=> true
@@ -261,7 +261,7 @@
     ))
 
 (defn show-if []
-  (highlight
+  (hlclj
     ;;{{
     (if (> 3 1)
         "3 is greater than 1"
@@ -271,7 +271,7 @@
     ))
 
 (defn show-loop []
-  (highlight
+  (hlclj
     ;;{{
     (loop [x 21]
       (when (> x 1)
@@ -281,7 +281,7 @@
     ))
 
 (defn show-doseq []
-  (highlight
+  (hlclj
     ;;{{
     (doseq [x [1 2 3]
             y [1 2 3]]
@@ -290,7 +290,7 @@
     ))
 
 (defn clue-model []
-  (highlight
+  (hlclj
     ;;{{
     {:name "Clue"
      :min-num-players   3
@@ -303,7 +303,7 @@
     ))
 
 (defn monopoly-model []
-  (highlight
+  (hlclj
     ;;{{
     {:name "Monopoly"
      :min-num-players   2
@@ -316,7 +316,7 @@
     ))
 
 (defn candy-land-model []
-  (highlight
+  (hlclj
     ;;{{
     {:name "Candy Land"
      :min-num-players   2 
@@ -329,7 +329,7 @@
     ))
 
 (defn catan-model []
-  (highlight
+  (hlclj
     ;;{{
     {:name "The Settlers of Catan"
      :min-num-players   3 
@@ -342,7 +342,7 @@
     ))
 
 (defn diplomacy-model []
-  (highlight
+  (hlclj
     ;;{{
     {:name "Diplomacy"
      :min-num-players   2 
@@ -355,7 +355,7 @@
     ))
 
 (defn board-games-model []
-  (highlight
+  (hlclj
     ;;{{
     (def clue {:name "Clue" ...})
     (def monopoly {:name "Monopoly" ...})
@@ -369,7 +369,7 @@
     ))
 
 (defn player-model []
-  (highlight
+  (hlclj
     ;;{{
     (def dorian 
       {:first           "Dorian"
@@ -381,7 +381,7 @@
     ))
 
 (defn ref-example []
-  (highlight
+  (hlclj
     ;;{{
     (def bank (ref 0))
     (def bank-props (ref #{"Baltic" "Park Place" "Boardwalk"}))
@@ -415,7 +415,7 @@
     ))
 
 (defn atom-example []
-  (highlight
+  (hlclj
     ;;{{
     (def player1 (atom {:brick 0 :lumber 1 :wool 1 :grain 0 :ore 0}))
     (def player2 (atom {:brick 1 :lumber 0 :wool 1 :grain 0 :ore 0}))
@@ -435,7 +435,7 @@
     ))
 
 (defn agent-example []
-  (highlight
+  (hlclj
     ;;{{
     (def p1 (agent []))
     (def p2 (agent []))
@@ -456,7 +456,7 @@
     ))
 
 (defn var-example []
-  (highlight
+  (hlclj
     ;;{{
     (ns games)
 
@@ -475,14 +475,14 @@
     ))
 
 (defn show-namespaces []
-  (highlight
+  (hlclj
     ;;{{
     (ns foo.bar.baz-quuz)
     ;;}}
     ))  
 
 (defn show-require []
-  (highlight
+  (hlclj
     ;;{{
     (ns my-ns
       (:require clojure.set))
