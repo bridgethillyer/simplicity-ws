@@ -4,7 +4,15 @@
 
 (defn slides []
   (chapter :title "Simple Examples"
-    (slide :title "Example 1")
-    (slide :title "Example 2")))
+    (slide :title "core.matrix"
+      (ul 
+        (li "Want logic programming? core.logic")
+        (li "Want CSP? core.async")
+        (li "Want numerical computing? core.matrix")
+        (li (a :href "https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix.clj" "Source Code"))
+        (li (a :href "https://www.youtube.com/watch?v=_h9TLJtjSJo" "Clojure/conj 2013 talk"))))
+    (slide :title "http-kit"
+      (ul
+        (li (a :href "https://github.com/http-kit/http-kit/blob/master/src/org/httpkit/client.clj#L118" "Source Code"))))))
     
     
