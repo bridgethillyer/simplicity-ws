@@ -1,5 +1,6 @@
 (page "simplicity-deck.html"
       (:require [hoplon.reveal :refer [slideshow]]
+                [tailrecursion.hoplon.reload :refer [reload-all]]
                 [simplicity-deck.overview :as overview]
                 [simplicity-deck.collections :as collections]
                 [simplicity-deck.sequences :as sequences]
@@ -11,9 +12,7 @@
                 [simplicity-deck.examples :as examples]
                 [simplicity-deck.extras :as extras]))
 
-(when (= (-> js/window .-location .-search) "?dev")
-  (print "Autoreloading")
-  (reload-all))
+(reload-all)
 
 (html
   (head
