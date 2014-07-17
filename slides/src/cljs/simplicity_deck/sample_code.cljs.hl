@@ -246,10 +246,39 @@
 
 (defn show-reduce-max []
   (hlclj
-    ;;{{
-    ;;TODO: put something here
-    ;;}}
-    ))
+   ;;{{
+   (defn my-max
+     [coll]
+     (reduce (fn [current proposed]
+               (if (> proposed current)
+                 proposed
+                 current)) coll))
+   ;;}}
+   ))
+
+(defn show-filter []
+  (hlclj
+   ;;{{
+   (def game-pieces
+     [{:color "red" :type "die" :sides 6}
+      {:color "blue" :type "meeple"}
+      {:color "white" :type "die" :sides 8}])
+
+   (def dice (filter #(= (:type %) "die") game-pieces))
+   ;=> ({:color "red", :type "die", :sides 6}
+   ;    {:color "white", :type "die", :sides 8})
+   ;;}}
+   ))
+
+(defn show-map-with-side-effect []
+  (hlclj
+   ;;{{
+   (def squares (map (fn [x] (println x) (* x x)) (range 1 100)))
+   (first squares)
+   ;; ...prints out 1 through 32...
+   ;=> 1
+   ;;}}
+   ))
 
 (defn show-cond []
   (hlclj
