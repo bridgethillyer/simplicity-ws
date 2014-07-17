@@ -11,15 +11,39 @@
     (slide :title "Define with defn"
       (sample-code/define-with-defn))
     (slide :title "Family Game Night"
-      (p "Write a function to find all games that can be played by someone "
-         "age 8 and up. Apply to board-games set."))
+           (p "Write a function that takes a board game (using the maps "
+              "we previously used) and the age of your youngest player "
+              "and lets you know if that game can be played by your family."))
     (slide :title "Higher order functions - map"
       (sample-code/show-map))
     (slide :title "Higher order functions - reduce"
       (sample-code/show-reduce))
     (slide :title "Higher order functions - implementing max with reduce"
       (sample-code/show-reduce-max))
+    (slide :title "Higher order functions - filter and function literals"
+           (sample-code/show-filter))
     (slide :title "Family Game Night Redux"    
-      (p "Rewrite the previous exercise using map.")
-      (p "Write a function to find all games that can be played by someone "
-         "age 8 and up using " (b "map") ". Apply to board-games set."))))
+           (p "Write a function that takes two collections: your set of board "
+              "games and the ages of all people playing. Find all games that "
+              "your group can play, considering both ages and the total number "
+              "of people."))
+    (slide :title "Functional programming"
+           (ul
+            (li "Functions as primary units of computation")
+            (li "Avoiding state")
+            (li "Preferring immutability")
+            (li "Repeatable functions lacking side effects - " (i "idempotent under sequential composition"))))
+    (slide :title "Side effects"
+           (p "A side effect is any change in state or interaction that happens "
+              "with the outside world during the evaluation of a function.")
+           (ul
+            (li "updating a global variable")
+            (li "input and output")))
+    (slide :title "How to deal with side effects"
+           (ul
+            (li "Put them at the edges of your code")
+            (li "Eliminate them from the majority of your functions")
+            (li "Use features like atoms and refs, which allow state to be updated through applying pure functions")
+            (li "Remember that most sequences are lazy!")))
+    (slide :title "Side effect in a map fn"
+           (sample-code/show-map-with-side-effect))))
