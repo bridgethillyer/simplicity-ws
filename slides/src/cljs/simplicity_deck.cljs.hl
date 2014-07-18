@@ -25,7 +25,7 @@
       (model/slides)
       (functions/slides)
       (flow/slides)      
-      (polymorphism/slides)
+      (protocols/slides)
       (state/slides)
       (examples/slides)
       (extras/slides))))

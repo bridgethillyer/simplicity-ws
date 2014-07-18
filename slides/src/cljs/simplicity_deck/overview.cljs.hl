@@ -8,7 +8,22 @@
     (bullet "Bridget Hillyer")
     (bullet "OSCON 2014"))
   (chapter :title "Overview"
-    (slide :title "Agenda")
+    (slide :title "Agenda"
+      (p (b "9:00 am"))
+      (ul
+        (li "Clojure Overview")
+        (li "Collections")
+        (li "Sequences")
+        (li "Modeling"))
+      (p (b "10:30 am"))
+      (p "Break")
+      (p (b "11:00 am"))
+      (ul
+        (li "Functions")
+        (li "Flow Control")
+        (li "Polymorphism")
+        (li "State")
+        (li "Clojure Libraries")))
     (slide :title "Why Clojure?"
       (ul
         (li "Simple")
