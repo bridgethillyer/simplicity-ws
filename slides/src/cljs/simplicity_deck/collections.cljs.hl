@@ -8,7 +8,8 @@
     (slide :title "Simple Collections"
       (ul
         (li "Immutability")
-        (li "Heterogeneous")))
+        (li "Heterogeneous")
+        (li "Persistent")))
     (slide :title "Collection types in Clojure"
       (ul
         (li "Vectors")
