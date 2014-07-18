@@ -6,7 +6,8 @@
 (defn slides []
   (chapter :title "Flow Control"
     (slide :title "Truthiness"
-      (sample-code/truthiness))
+      (sample-code/truthiness)
+      (notes "Everything is true unless it's nil or false"))
     (slide :title "cond"
       (sample-code/show-cond))
     (slide :title "if"
