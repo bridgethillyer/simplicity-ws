@@ -1,8 +1,0 @@
-(ns simplicity-deck.protocols
-    (:require [hoplon.reveal :refer [chapter slide notes highlight quicklist]]
-              [simplicity-deck.sample-code :as sample-code]))
-
-
-(defn slides []
-  (chapter :title "Protocols"
-    (slide :title "Simple Protocols")))

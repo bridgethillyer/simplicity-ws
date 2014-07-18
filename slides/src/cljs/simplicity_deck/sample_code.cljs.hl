@@ -552,4 +552,141 @@
     (set/union #{1 2} #{2 3 4}) 
     ;;=> #{1 2 3 4}
     ;;}}
-    )) 
+    ))
+
+(defn monopoly-maps []
+  (hlclj
+   ;;{{
+   (def park-place {:name "Park Place" :base-rent 35 :type :property :color-count 2})
+   (def electric-company {:name "Electric Company" :type :utility})
+   (def short-line {:name "Short Line" :type :railroad})
+   ;;}}
+   ))
+
+(defn monopoly-rent-cond []
+  (hlclj
+   ;;{{
+   (defn roll-dice []
+     (+ 2 (rand-int 6) (rand-int 6)))
+   
+   (defn calculate-rent
+     ([location num-like-locations]
+        (calculate-rent location num-like-locations (roll-dice)))
+     ([location num-like-locations die-roll]
+        (let [type (:type location)]
+          (cond
+           (= type :property)
+           (if (= (inc num-like-locations) (:color-count location))
+             (* (:base-rent location) 2)
+             (:base-rent location))
+
+           (= type :utility)
+           (if (zero? num-like-locations)
+             (* 4 die-roll)
+             (* 10 die-roll))
+
+           (= type :railroad)
+           (* 25 (Math/pow 2 num-like-locations))))))
+   ;;}}
+   ))
+
+(defn monopoly-rent-multimethods []
+  (hlclj
+   ;;{{
+   (defmulti calculate-rent
+     (fn [location & _]) (:type location))
+
+   (defmethod calculate-rent :property
+     [location num-like-locations _]
+     (if (= (inc num-like-locations) (:color-count location))
+       (* base-rent 2)
+       base-rent))
+
+   (defmethod calculate-rent :utility
+     [_ num-like-locations die-roll]
+     (if (zero? num-like-locations)
+       (* 4 die-roll)
+       (* 10 die-roll)))
+
+   (defmethod calculate-rent :railroad
+     [_ num-like-locations _]
+     (* 25 (Math/pow 2 num-like-locations)))
+
+   (defmethod calculate-rent :default
+     [& _]
+     0)
+   ;;}}
+   ))
+
+(defn rentable-protocol []
+  (hlclj
+   ;;{{
+   (defprotocol Rentable
+     (calculate-rent [this num-like-locations] [this num-like-locations die-roll]
+       "Calculates the rent on this location.")
+     (readable-rent [this]))
+   ;;}}
+   ))
+
+(defn rentable-property []
+  (hlclj
+   ;;{{
+   (defrecord Property [name base-rent num-in-group]
+     Rentable
+     (calculate-rent [_ num-like-locations]
+       (if (= (inc num-like-locations) num-in-group)
+         (* base-rent 2)
+         base-rent))
+     (calculate-rent [property num-like-locations _]
+       (calculate-rent property num-like-locations))
+     (readable-rent [_]
+       (str "$" base-rent ", $" (* 2 base-rent) " if monopoly")))
+   ;;}}
+   ))
+
+(defn rentable-utility []
+  (hlclj
+   ;;{{
+   (defrecord Utility [name]
+     Rentable
+     (calculate-rent [utility num-like-locations]
+       (calculate-rent utility num-like-locations (+ (rand-int 6) (rand-int 6) 2)))
+     (calculate-rent [_ num-like-locations die-roll]
+       (if (zero? num-like-locations)
+         (* 4 die-roll)
+         (* 10 die-roll)))
+     (readable-rent [_]
+       (str "$4 * dice roll, $10 * dice roll if you own both")))
+   ;;}}
+   ))
+
+(defn rentable-railroad []
+  (hlclj
+   ;;{{
+   (defrecord Railroad [name]
+     Rentable
+     (calculate-rent [_ num-like-locations]
+       (* 25
+          (Math/pow 2 num-like-locations)))
+     (calculate-rent [railroad num-like-locations _]
+       (calculate-rent railroad num-like-locations))
+     (readable-rent [_]
+       (str "$25 if you own 1, $50 if 2, $100 if 3, $200 if 4")))
+   ;;}}
+   ))
+
+(defn rentable-locations []
+  (hlclj
+   ;;{{
+   (def park-place (->Property "Park Place" 35 2))
+   (def electric-company (->Utility "Electric Company"))
+   (def short-line (->Railroad "Short Line"))
+
+   (calculate-rent electric-company 0 7)
+   ;=> 28
+
+   (readable-rent park-place)
+   ;=> "$35, $70 if monopoly"
+   ;;}}
+   ))
+
