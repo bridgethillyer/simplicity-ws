@@ -491,7 +491,6 @@
     (def bank-props (ref #{"Baltic" "Park Place" "Boardwalk"}))
     (def player (ref [{:money 1500
                        :props #{}}]))
-
     @bank
     ;=> 0
     @bank-props
@@ -549,13 +548,17 @@
     @p2
     ;=> []
 
-    (send p1 conj [:A "Hol-Bel"] [:A "Kie-Hol"] [:A "Smy-Arm"] [:A "Bud-Ser"] [:A "Tun-Wes"] [:F "Nap-Tys"] [:F "Por-Spa"])
-    (send p2 conj [:F "Nwy-StP"] [:F "Nth-Nwy"] [:A "Edi-Nth"] [:A "Ruh-Bur"] [:A "Bul-Rum"] [:A "Con-Bul"] [:F "Tri-Bud"] [:A "Wes-Mid"] [:F "TyS-Lyo"])
+    (send p1 conj [:A "Hol-Bel"] [:A "Kie-Hol"] [:A "Smy-Arm"] [:A "Bud-Ser"] 
+          [:A "Tun-Wes"] [:F "Nap-Tys"] [:F "Por-Spa"])
+    (send p2 conj [:F "Nwy-StP"] [:F "Nth-Nwy"] [:A "Edi-Nth"] [:A "Ruh-Bur"] 
+          [:A "Bul-Rum"] [:A "Con-Bul"] [:F "Tri-Bud"] [:A "Wes-Mid"] [:F "TyS-Lyo"])
 
     @p1
-    ;=> [[:A "Hol-Bel"] [:A "Kie-Hol"] [:A "Smy-Arm"] [:A "Bud-Ser"] [:A "Tun-Wes"] [:F "Nap-Tys"] [:F "Por-Spa"]]
+    ;=> [[:A "Hol-Bel"] [:A "Kie-Hol"] [:A "Smy-Arm"] [:A "Bud-Ser"] 
+    ;=> [:A "Tun-Wes"] [:F "Nap-Tys"] [:F "Por-Spa"]]
     @p2
-    ;=> [[:F "Nwy-StP"] [:F "Nth-Nwy"] [:A "Edi-Nth"] [:A "Ruh-Bur"] [:A "Bul-Rum"] [:A "Con-Bul"] [:F "Tri-Bud"] [:A "Wes-Mid"] [:F "TyS-Lyo"]]
+    ;=> [[:F "Nwy-StP"] [:F "Nth-Nwy"] [:A "Edi-Nth"] [:A "Ruh-Bur"] 
+    ;=> [:A "Bul-Rum"] [:A "Con-Bul"] [:F "Tri-Bud"] [:A "Wes-Mid"] [:F "TyS-Lyo"]]
     ;;}}
     ))
 

@@ -6,13 +6,11 @@
   (chapter :title "Simple Examples"
     (slide :title "core.matrix"
       (ul 
-        (li "Want logic programming? core.logic")
-        (li "Want CSP? core.async")
-        (li "Want numerical computing? core.matrix")
-        (li (a :href "https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix.clj" "Source Code"))
-        (li (a :href "https://www.youtube.com/watch?v=_h9TLJtjSJo" "Clojure/conj 2013 talk"))))
+        (li "Want logic programming?  " (b "core.logic"))
+        (li "Want CSP?  " (b "core.async"))
+        (li "Want numerical computing?  " (b "core.matrix"))
+        (li "Source Code: " (a :href "https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix.clj" "https://github.com/mikera/core.matrix" ))
+        (li "Clojure/conj 2013 talk: " (a :href "https://www.youtube.com/watch?v=_h9TLJtjSJo" "https://www.youtube.com/watch?v=_h9TLJtjSJo"))))
     (slide :title "http-kit"
       (ul
-        (li (a :href "https://github.com/http-kit/http-kit/blob/master/src/org/httpkit/client.clj#L118" "Source Code"))))))
-    
-    
+        (li "Source Code: " (a :href "https://github.com/http-kit/http-kit/blob/master/src/org/httpkit/client.clj#L118" "https://github.com/http-kit"))))))
