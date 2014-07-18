@@ -1,0 +1,48 @@
+(ns simplicity-deck.protocols
+    (:require [hoplon.reveal :refer [chapter slide notes highlight quicklist]]
+              [simplicity-deck.sample-code :as sample-code]))
+
+
+(defn slides []
+  (chapter
+   :title "Polymorphism"
+   (slide :title "Using Control Flow")
+   (slide
+    :title "Monopoly locations"
+    (sample-code/monopoly-maps))
+   (slide
+    :title "Calculating Monopoly rent"
+    (sample-code/monopoly-rent-cond))
+   (slide
+    :title "Using multimethods"
+    (sample-code/monopoly-rent-multimethods))
+    (slide
+     :title "Protocols and records"
+     (ul
+      (li "Records are associative, like maps")
+      (li "They actually create Java classes")
+      (li "Protocols are similar to interfaces")
+      (li "And create Java interfaces")
+      (li "But can be applied to any current or future type")))
+    (slide
+     :title "Rentable protocol"
+     (sample-code/rentable-protocol))
+    (slide
+     :title "Property"
+     (sample-code/rentable-property))
+    (slide
+     :title "Utility"
+     (sample-code/rentable-utility))
+    (slide
+     :title "Railroad"
+     (sample-code/rentable-railroad))
+    (slide
+     :title "Some locations"
+     (sample-code/rentable-locations))
+    (slide
+     :title "Chess pieces"
+     (p "Make a protocol Piece that has two methods: " (code "possible-moves") " and " (code "can-move") "?")
+     (p "Then make records for Kings and Knights and implement the Piece protocol.")
+     (p "Kings and Knights should know their current location.")
+     (p "Chess locations are on a board with one axis being a-h and the other being 1-8.")))
+  )

@@ -554,6 +554,70 @@
     ;;}}
     ))
 
+(defn monopoly-maps []
+  (hlclj
+   ;;{{
+   (def park-place {:name "Park Place" :base-rent 35 :type :property :color-count 2})
+   (def electric-company {:name "Electric Company" :type :utility})
+   (def short-line {:name "Short Line" :type :railroad})
+   ;;}}
+   ))
+
+(defn monopoly-rent-cond []
+  (hlclj
+   ;;{{
+   (defn roll-dice []
+     (+ 2 (rand-int 6) (rand-int 6)))
+   
+   (defn calculate-rent
+     ([location num-like-locations]
+        (calculate-rent location num-like-locations (roll-dice)))
+     ([location num-like-locations die-roll]
+        (let [type (:type location)]
+          (cond
+           (= type :property)
+           (if (= (inc num-like-locations) (:color-count location))
+             (* (:base-rent location) 2)
+             (:base-rent location))
+
+           (= type :utility)
+           (if (zero? num-like-locations)
+             (* 4 die-roll)
+             (* 10 die-roll))
+
+           (= type :railroad)
+           (* 25 (Math/pow 2 num-like-locations))))))
+   ;;}}
+   ))
+
+(defn monopoly-rent-multimethods []
+  (hlclj
+   ;;{{
+   (defmulti calculate-rent
+     (fn [location & _]) (:type location))
+
+   (defmethod calculate-rent :property
+     [location num-like-locations _]
+     (if (= (inc num-like-locations) (:color-count location))
+       (* base-rent 2)
+       base-rent))
+
+   (defmethod calculate-rent :utility
+     [_ num-like-locations die-roll]
+     (if (zero? num-like-locations)
+       (* 4 die-roll)
+       (* 10 die-roll)))
+
+   (defmethod calculate-rent :railroad
+     [_ num-like-locations _]
+     (* 25 (Math/pow 2 num-like-locations)))
+
+   (defmethod calculate-rent :default
+     [& _]
+     0)
+   ;;}}
+   ))
+
 (defn rentable-protocol []
   (hlclj
    ;;{{
@@ -576,7 +640,7 @@
      (calculate-rent [property num-like-locations _]
        (calculate-rent property num-like-locations))
      (readable-rent [_]
-       (str "$" base-rent ", " (* 2 base-rent) " if monopoly")))
+       (str "$" base-rent ", $" (* 2 base-rent) " if monopoly")))
    ;;}}
    ))
 
@@ -616,7 +680,13 @@
    ;;{{
    (def park-place (->Property "Park Place" 35 2))
    (def electric-company (->Utility "Electric Company"))
-   (def western (->Railroad "Western"))
+   (def short-line (->Railroad "Short Line"))
+
+   (calculate-rent electric-company 0 7)
+   ;=> 28
+
+   (readable-rent park-place)
+   ;=> "$35, $70 if monopoly"
    ;;}}
    ))
 
