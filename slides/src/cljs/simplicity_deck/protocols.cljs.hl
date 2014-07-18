@@ -5,4 +5,20 @@
 
 (defn slides []
   (chapter :title "Protocols"
-    (slide :title "Simple Protocols")))
+    (slide :title "Simple Protocols")
+    (slide
+     :title "Rentable protocol"
+     (sample-code/rentable-protocol))
+    (slide
+     :title "Property"
+     (sample-code/rentable-property))
+    (slide
+     :title "Utility"
+     (sample-code/rentable-utility))
+    (slide
+     :title "Railroad"
+     (sample-code/rentable-railroad))
+    (slide
+     :title "Some locations"
+     (sample-code/rentable-locations)))
+  )
