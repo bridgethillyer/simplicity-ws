@@ -48,7 +48,7 @@
     ))
 
 (defn show-more-lists []
-  (hlclj
+  (hlclj :class "two-cols"
     ;;{{
     (list? (list 1 2 3))
     ;=> true
@@ -89,7 +89,7 @@
     ))
 
 (defn show-more-maps []
-  (hlclj
+  (hlclj 
     ;;{{
     (map? {:first "Eleanor" :last "Peacock"})
     ;=> true
@@ -141,7 +141,7 @@
     ))
 
 (defn show-more-sets []
-  (hlclj
+  (hlclj :class "two-cols"
     ;;{{
     (set? #{1 2})
     ;=> true
@@ -433,6 +433,54 @@
        :age             12
        :fav-categories  ["Fantasy" "Humor"]
        :type            "Player"})
+    ;;}}
+    ))
+
+(defn more-models []
+  (hlclj
+    ;;{{
+    (def brian
+     {:first        "Brian"
+      :last         "Hunt"
+      :age          40
+      :type         "DungeonMaster"
+     } 
+
+    (def keith
+     {:first        "Keith"
+      :last         "Hayes"
+      :age          42
+      :type         "Host"
+      }
+    ;;}}
+    ))
+
+(defn access-model []
+  (hlclj
+    ;;{{
+    (get brian :age)
+    (:age brian)
+
+    (def people (dorian brian keith))
+    (map :age people)
+
+    (keys people)
+    (vals people)
+
+    ;;}}
+    ))
+
+(defn player-record []
+  (hlclj
+    ;;{{
+    (defrecord Player [first last age])
+    
+    (def dorian 
+      (-> Player "Dorian" "Hayes" 12))
+
+    (class dorian)
+    ;=> user.Player
+
     ;;}}
     ))
 

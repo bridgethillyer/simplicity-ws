@@ -29,5 +29,14 @@
       (p "Define vars for each game and add to the board-games set.")
       (p "Bonus: Model a game player."))
     (slide :title "Where is my object?"
-      (sample-code/player-model))))
+      (sample-code/player-model)
+      (notes "Just add :type"))
+    (slide :title "Who else likes games?"
+      (sample-code/more-models))
+    (slide :title "Access"
+      (sample-code/access-model)
+      (notes "Can get or use keyword as function to access fields. In "
+             "object-oriented world, need interfaces for that."))
+    (slide :title "Records"
+      (sample-code/player-record))))
              

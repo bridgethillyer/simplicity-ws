@@ -40,5 +40,5 @@
         (li (code "board"))
         (li (code ":player1"))
         (li (code "#\"[0-9+]\""))))
-    (slide :title "Functions"
+    (slide :title "Calling Functions"
       (sample-code/call-a-function))))
