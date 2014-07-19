@@ -608,7 +608,8 @@
 (defn monopoly-maps []
   (hlclj
    ;;{{
-   (def park-place {:name "Park Place" :base-rent 35 :type :property :color-count 2})
+   (def park-place {:name "Park Place" :base-rent 35
+                    :type :property :color-count 2})
    (def electric-company {:name "Electric Company" :type :utility})
    (def short-line {:name "Short Line" :type :railroad})
    ;;}}
