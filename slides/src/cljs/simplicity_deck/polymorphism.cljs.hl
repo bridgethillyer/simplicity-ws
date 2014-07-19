@@ -1,4 +1,4 @@
-(ns simplicity-deck.protocols
+(ns simplicity-deck.polymorphism
     (:require [hoplon.reveal :refer [chapter slide notes highlight quicklist]]
               [simplicity-deck.sample-code :as sample-code]))
 

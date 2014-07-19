@@ -1,4 +1,4 @@
-(page "simplicity-deck.html"
+(page "index.html"
       (:require [hoplon.reveal :refer [slideshow]]
                 [tailrecursion.hoplon.reload :refer [reload-all]]
                 [simplicity-deck.overview :as overview]
@@ -6,13 +6,13 @@
                 [simplicity-deck.sequences :as sequences]
                 [simplicity-deck.model :as model]
                 [simplicity-deck.functions :as functions]
-                [simplicity-deck.protocols :as protocols]
+                [simplicity-deck.polymorphism :as polymorphism]
                 [simplicity-deck.flow :as flow]
                 [simplicity-deck.state :as state]
                 [simplicity-deck.examples :as examples]
                 [simplicity-deck.extras :as extras]))
 
-(reload-all)
+;;(reload-all)
 
 (html
   (head
@@ -24,10 +24,8 @@
       (sequences/slides)
       (model/slides)
       (functions/slides)
-      (flow/slides)      
-      (protocols/slides)
+      (flow/slides)
+      (polymorphism/slides)
       (state/slides)
       (examples/slides)
       (extras/slides))))
-      
-      
