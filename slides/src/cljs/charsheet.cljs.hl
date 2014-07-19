@@ -78,74 +78,81 @@
 
 (defn attr-input
   [attr]
-  [(input :id (str attr) :type "text" :value (attr @attrs) :on-change #(swap! attrs assoc attr (int (val-id (str attr)))))
-   (span :class "bonus" (text @(cell= (format-bonus (attr-bonuses attr)))))])
+  [(td (input :id (str attr) :type "text" :value (attr @attrs) :on-change #(swap! attrs assoc attr (int (val-id (str attr))))))
+   (td (span :class "bonus" (text @(cell= (format-bonus (attr-bonuses attr))))))])
 
 (html
   (head
-   )
+   (link :rel "stylesheet" :type "text/css" :href "normalize.css")
+   (link :rel "stylesheet" :type "text/css" :href "foundation.min.css"))
   (body
-   (table
-    (tr
-     (th "Level")
-     (td (input :id "level" :type "text" :do-value level :on-change #(reset! level (int (val-id "level"))))))
-    (tr
-     (th "Class")
-     (tr (select
-          :id "class"
-          :do-value class
-          :on-change #(reset! class (val-id "class"))
-          (option :value "fighter" "Fighter")
-          (option :value "cleric" "Cleric")
-          (option :value "magic-user" "Magic-User")
-          (option :value "thief" "Thief")))))
-   (table
-    (tr
-     (th "Str")
-     (td (attr-input :str)))
-    (tr
-     (th "Dex")
-     (td (attr-input :dex)))
-    (tr
-     (th "Con")
-     (td (attr-input :con)))
-    (tr
-     (th "Int")
-     (td (attr-input :int)))
-    (tr
-     (th "Wis")
-     (td (attr-input :wis)))
-    (tr
-     (th "Cha")
-     (td (attr-input :cha))))
+   (div :class "row" :style "margin-top: 30px"
+        (div :class "large-12 columns"
+             (table
+              :class "large-12 columns"
+              (tr
+               (th (label :for "level" :class "inline right" "Level"))
+               (td (input :id "level" :type "text" :do-value level :on-change #(reset! level (int (val-id "level")))))
+               (th (label :for "class" :class "inline right" "Class"))
+               (td (select
+                    :id "class"
+                    :do-value class
+                    :on-change #(reset! class (val-id "class"))
+                    (option :value "fighter" "Fighter")
+                    (option :value "cleric" "Cleric")
+                    (option :value "magic-user" "Magic-User")
+                    (option :value "thief" "Thief"))))))
+        )
+   (div :class "row"
+        (div :class "large-6 columns"
+             (table
+              :class "large-12 columns"
+              (tr
+               (th (label :for "str" :class "inline right" "Str"))
+               (attr-input :str))
+              (tr
+               (th (label :for "dex" :class "inline right" "Dex"))
+               (attr-input :dex))
+              (tr
+               (th (label :for "con" :class "inline right" "Con"))
+               (attr-input :con))
+              (tr
+               (th (label :for "int" :class "inline right" "Int"))
+               (attr-input :int))
+              (tr
+               (th (label :for "wis" :class "inline right" "Wis"))
+               (attr-input :wis))
+              (tr
+               (th (label :for "cha" :class "inline right" "Cha"))
+               (attr-input :cha))))
 
-   (table
-    (tr
-     (th "THAC0 (melee)")
-     (td (text @(cell= (- thac0
-                          (attr-bonuses :str))))))
-    (tr
-     (th "THAC0 (missile)")
-     (td (text @(cell= (- thac0
-                          (attr-bonuses :dex))))))
-    (tr
-     (th "Armor Class")
-     (td (text @(cell= armor-class)))))
-   
-   (table
-    (tr
-     (th "Weapon")
-     (td (select
-          :id "weapon"
-          :do-value weapon
-          :on-change #(reset! weapon (val-id "weapon"))
-          (loop-tpl :bindings [weapon (cell= (get-in classes [class :weapons]))]
-                    (option weapon)))))
-    (tr
-     (th "Armor")
-     (td (select
-          :id "armor"
-          :do-value armor
-          :on-change #(reset! armor (val-id "armor"))
-          (loop-tpl :bindings [armor (cell= (get-in classes [class :armor]))]
-                    (option armor))))))))
+        (div :class "large-6 columns"
+         (table
+          :class "large-12 columns"
+          (tr
+           (th (label :for "weapon" :class "inline right" "Weapon"))
+           (td (select
+                :id "weapon"
+                :do-value weapon
+                :on-change #(reset! weapon (val-id "weapon"))
+                (loop-tpl :bindings [weapon (cell= (get-in classes [class :weapons]))]
+                          (option weapon)))))
+          (tr
+           (th (label :for "armor" :class "inline right" "Armor"))
+           (td (select
+                :id "armor"
+                :do-value armor
+                :on-change #(reset! armor (val-id "armor"))
+                (loop-tpl :bindings [armor (cell= (get-in classes [class :armor]))]
+                          (option armor)))))
+          (tr
+           (td (span :class "right" "THAC0 (melee)"))
+           (td (text @(cell= (- thac0
+                                (attr-bonuses :str))))))
+          (tr
+           (td (span :class "right" "THAC0 (missile)"))
+           (td (text @(cell= (- thac0
+                                (attr-bonuses :dex))))))
+          (tr
+           (td (span :class "right" "Armor Class"))
+           (td (text @(cell= armor-class)))))))))
