@@ -3,10 +3,6 @@
               [simplicity-deck.sample-code :as sample-code]))
 
 (defn slides []
-  (intro :title "The Simplicity of Clojure"
-    (bullet "Clinton N. Dreisbach")
-    (bullet "Bridget Hillyer")
-    (bullet "OSCON 2014"))
   (chapter :title "Overview"
     (slide :title "Agenda"
       (p (b "9:00 am"))

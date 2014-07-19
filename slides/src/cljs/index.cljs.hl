@@ -1,5 +1,5 @@
 (page "index.html"
-      (:require [hoplon.reveal :refer [slideshow]]
+      (:require [hoplon.reveal :refer [slideshow intro bullet]]
                 [tailrecursion.hoplon.reload :refer [reload-all]]
                 [simplicity-deck.overview :as overview]
                 [simplicity-deck.collections :as collections]
@@ -12,20 +12,25 @@
                 [simplicity-deck.examples :as examples]
                 [simplicity-deck.extras :as extras]))
 
-;;(reload-all)
+(reload-all)
 
 (html
   (head
    (link :rel "stylesheet" :href "style.css"))
   (body
-    (slideshow :theme "simple"
-      (overview/slides)
-      (collections/slides)
-      (sequences/slides)
-      (model/slides)
-      (functions/slides)
-      (flow/slides)
-      (polymorphism/slides)
-      (state/slides)
-      (examples/slides)
-      (extras/slides))))
+    (slideshow
+     :theme "simple"
+     (intro :title "The Simplicity of Clojure"
+            (bullet "Bridget Hillyer")
+            (bullet "Clinton N. Dreisbach")
+            (bullet "OSCON 2014"))
+     (overview/slides)
+     (collections/slides)
+     (sequences/slides)
+     (model/slides)
+     (functions/slides)
+     (flow/slides)
+     (polymorphism/slides)
+     (state/slides)
+     (examples/slides)
+     (extras/slides))))

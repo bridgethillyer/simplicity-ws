@@ -1,8 +1,26 @@
 .two-cols {
-      -moz-column-count: 2;
-    -moz-column-gap: 50%;
-    -webkit-column-count: 2;
-    -webkit-column-gap: 50%;
-    column-count: 2;
-    column-gap: 50%;
+  -moz-column-count: 2;
+  -moz-column-gap: 50%;
+  -webkit-column-count: 2;
+  -webkit-column-gap: 50%;
+  column-count: 2;
+  column-gap: 50%;
+}
+
+div.reveal {
+  background-image: url(agsquare.png);
+}
+
+div.reveal code {
+  font-family: "Ubuntu Mono", monospace;
+  font-size: 120%;
+  line-height: 1.2;
+}
+
+div.reveal h1.slide-title {
+  line-height: 1.1;
+}
+
+div.reveal h1, div.reveal h2, div.reveal h3 {
+
 }
