@@ -16,11 +16,14 @@
 
 (html
   (head
+   (link :rel "stylesheet" :href "http://fonts.googleapis.com/css?family=Roboto:400,700,900,700italic,900italic,400italic")
+   (link :rel "stylesheet" :href "http://fonts.googleapis.com/css?family=Inconsolata:400,700")
    (link :rel "stylesheet" :href "style.css"))
   (body
     (slideshow
      :theme "simple"
      (intro :title "The Simplicity of Clojure"
+            :data-state "title-slide"
             (bullet "Bridget Hillyer")
             (bullet "Clinton N. Dreisbach")
             (bullet "OSCON 2014"))

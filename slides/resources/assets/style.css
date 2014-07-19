@@ -8,11 +8,14 @@
 }
 
 div.reveal {
-  background-image: url(agsquare.png);
+  background-image: url(img/pw_maze_white.png);
 }
 
 div.reveal code {
-  font-family: "Ubuntu Mono", monospace;
+  font-family: "Inconsolata", monospace;
+}
+
+div.reveal pre code {
   font-size: 120%;
   line-height: 1.2;
 }
@@ -21,6 +24,10 @@ div.reveal h1.slide-title {
   line-height: 1.1;
 }
 
-div.reveal h1, div.reveal h2, div.reveal h3 {
+div.reveal h1, div.reveal h2, div.reveal h3, div.reveal h4, div.reveal h5, div.reveal h6, .reveal .slides {
+  font-family: Roboto, sans-serif;
+}
 
+.title-slide .reveal {
+  background-image: url(img/congruent_pentagon.png);
 }
