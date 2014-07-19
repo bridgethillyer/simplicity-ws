@@ -1,0 +1,39 @@
+(page "index.html"
+      (:require [hoplon.reveal :refer [slideshow intro bullet]]
+                [tailrecursion.hoplon.reload :refer [reload-all]]
+                [simplicity-deck.overview :as overview]
+                [simplicity-deck.collections :as collections]
+                [simplicity-deck.sequences :as sequences]
+                [simplicity-deck.model :as model]
+                [simplicity-deck.functions :as functions]
+                [simplicity-deck.polymorphism :as polymorphism]
+                [simplicity-deck.flow :as flow]
+                [simplicity-deck.state :as state]
+                [simplicity-deck.examples :as examples]
+                [simplicity-deck.extras :as extras]))
+
+(reload-all)
+
+(html
+  (head
+   (link :rel "stylesheet" :href "http://fonts.googleapis.com/css?family=Roboto:400,700,900,700italic,900italic,400italic")
+   (link :rel "stylesheet" :href "http://fonts.googleapis.com/css?family=Inconsolata:400,700")
+   (link :rel "stylesheet" :href "style.css"))
+  (body
+    (slideshow
+     :theme "simple"
+     (intro :title "The Simplicity of Clojure"
+            :data-state "title-slide"
+            (bullet "Bridget Hillyer")
+            (bullet "Clinton N. Dreisbach")
+            (bullet "OSCON 2014"))
+     (overview/slides)
+     (collections/slides)
+     (sequences/slides)
+     (model/slides)
+     (functions/slides)
+     (flow/slides)
+     (polymorphism/slides)
+     (state/slides)
+     (examples/slides)
+     (extras/slides))))

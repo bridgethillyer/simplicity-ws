@@ -11,6 +11,10 @@
         (li "Want numerical computing?  " (b "core.matrix"))
         (li "Source Code: " (a :href "https://github.com/mikera/core.matrix/blob/develop/src/main/clojure/clojure/core/matrix.clj" "https://github.com/mikera/core.matrix" ))
         (li "Clojure/conj 2013 talk: " (a :href "https://www.youtube.com/watch?v=_h9TLJtjSJo" "https://www.youtube.com/watch?v=_h9TLJtjSJo"))))
-    (slide :title "http-kit"
+    (slide :title "Javelin & Hoplon"
       (ul
-        (li "Source Code: " (a :href "https://github.com/http-kit/http-kit/blob/master/src/org/httpkit/client.clj#L118" "https://github.com/http-kit"))))))
+       (li "Reactive programming in Clojure")
+       (li "Treat your data like a spreadsheet")
+       (li "Web data binding")
+       (li "Source Code: " (a :href "https://github.com/tailrecursion/javelin" "github.com/tailrecursion/javelin"))
+       (li "More info: " (a :href "https://hoplon.io" "hoplon.io"))))))

@@ -2,3 +2,4 @@ resources/public/
 .boot/
 target
 .lein-*
+.gh-pages

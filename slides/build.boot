@@ -30,4 +30,4 @@
 (deftask production
   "Build my-project for production."
   []
-  (hoplon {:optimizations :advanced}))
+  (hoplon {:prerender true :optimizations :simple}))

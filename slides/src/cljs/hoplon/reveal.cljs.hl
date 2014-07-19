@@ -50,14 +50,14 @@
 (defelem chapter
   [{:keys [title] :as attrs} children]
   (if (empty? title)
-    (slide {} children)
-    (slide {} (concat [(slide (chapter-title title))] children))))
+    (slide (dissoc attrs :title) children)
+    (slide (dissoc attrs :title) (concat [(slide (chapter-title title))] children))))
 
 (defelem intro
   [{:keys [title] :as attrs} children]
   (if (empty? title)
-    (slide {} children)
-    (slide {} (concat [(intro-title title)] children))))
+    (slide (dissoc attrs :title) children)
+    (slide (dissoc attrs :title) (concat [(intro-title title)] children))))
 
 (defelem slideshow
   [{:keys [theme] :as attrs :or {theme "default"}} children]
@@ -66,6 +66,7 @@
      (.initialize
       js/Reveal
       (clj->js {:history true
+                :transition "linear"
                 :dependencies
                 [{:src "reveal.js/plugin/markdown/marked.js"}
                  {:src "reveal.js/plugin/markdown/markdown.js"}
