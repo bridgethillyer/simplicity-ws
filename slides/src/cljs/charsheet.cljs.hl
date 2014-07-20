@@ -84,9 +84,13 @@
 (html
   (head
    (link :rel "stylesheet" :type "text/css" :href "normalize.css")
-   (link :rel "stylesheet" :type "text/css" :href "foundation.min.css"))
+   (link :rel "stylesheet" :type "text/css" :href "foundation.min.css")
+   (link :rel "stylesheet" :type "text/css" :href "charsheet.css")
+   (link :rel "stylesheet" :type "text/css" :href "http://fonts.googleapis.com/css?family=PT+Serif:400,700|Germania+One"))
   (body
    (div :class "row" :style "margin-top: 30px"
+        (h1 :class "large-12 columns text-center"
+            "Dungeons & Dragons")
         (div :class "large-12 columns"
              (table
               :class "large-12 columns"
