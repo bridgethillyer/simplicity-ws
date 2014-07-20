@@ -50,6 +50,15 @@
     (str "+" bonus)
     (str bonus)))
 
+(defn format-weapon-damage
+  [die-size bonus]
+  
+  (str "1d" die-size
+       (cond
+        (> bonus 0) (str " + " bonus)
+        (< bonus 0) (str " - " (- 0 bonus))
+        :else "")))
+
 ;;; CELLS
 
 (defc level 1)
@@ -75,6 +84,12 @@
 (defc= armor-class
   (let [base-ac (get armors armor)]
     (- base-ac (:dex attr-bonuses))))
+
+(defc= weapon-damage
+  (get weapons weapon))
+
+(defc= weapon-damage-text
+  (format-weapon-damage weapon-damage (attr-bonuses :str)))
 
 (defn attr-input
   [attr]
@@ -159,4 +174,7 @@
                                 (attr-bonuses :dex))))))
           (tr
            (td (span :class "right" "Armor Class"))
-           (td (text @(cell= armor-class)))))))))
+           (td (text @(cell= armor-class))))
+          (tr
+           (td (span :class "right" (text "Damage (~{weapon})")))
+           (td (text @(cell= weapon-damage-text)))))))))
