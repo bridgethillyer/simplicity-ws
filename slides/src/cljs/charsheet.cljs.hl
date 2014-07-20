@@ -50,6 +50,15 @@
     (str "+" bonus)
     (str bonus)))
 
+(defn format-weapon-damage
+  [die-size bonus]
+  
+  (str "1d" die-size
+       (cond
+        (> bonus 0) (str " + " bonus)
+        (< bonus 0) (str " - " (- 0 bonus))
+        :else "")))
+
 ;;; CELLS
 
 (defc level 1)
@@ -76,6 +85,12 @@
   (let [base-ac (get armors armor)]
     (- base-ac (:dex attr-bonuses))))
 
+(defc= weapon-damage
+  (get weapons weapon))
+
+(defc= weapon-damage-text
+  (format-weapon-damage weapon-damage (attr-bonuses :str)))
+
 (defn attr-input
   [attr]
   [(td (input :id (str attr) :type "text" :value (attr @attrs) :on-change #(swap! attrs assoc attr (int (val-id (str attr))))))
@@ -84,9 +99,13 @@
 (html
   (head
    (link :rel "stylesheet" :type "text/css" :href "normalize.css")
-   (link :rel "stylesheet" :type "text/css" :href "foundation.min.css"))
+   (link :rel "stylesheet" :type "text/css" :href "foundation.min.css")
+   (link :rel "stylesheet" :type "text/css" :href "charsheet.css")
+   (link :rel "stylesheet" :type "text/css" :href "http://fonts.googleapis.com/css?family=PT+Serif:400,700|Germania+One"))
   (body
    (div :class "row" :style "margin-top: 30px"
+        (h1 :class "large-12 columns text-center"
+            "Dungeons & Dragons")
         (div :class "large-12 columns"
              (table
               :class "large-12 columns"
@@ -155,4 +174,7 @@
                                 (attr-bonuses :dex))))))
           (tr
            (td (span :class "right" "Armor Class"))
-           (td (text @(cell= armor-class)))))))))
+           (td (text @(cell= armor-class))))
+          (tr
+           (td (span :class "right" (text "Damage (~{weapon})")))
+           (td (text @(cell= weapon-damage-text)))))))))
