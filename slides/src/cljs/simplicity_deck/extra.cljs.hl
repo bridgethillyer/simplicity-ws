@@ -36,5 +36,6 @@
         (li "Rich Hickey - Simple Made Easy: " (a :href "http://www.infoq.com/presentations/Simple-Made-Easy" "http://www.infoq.com/presentations/Simple-Made-Easy"))
         (li "Stuart Halloway - Simplicity Ain't Easy: " (a :href "https://www.youtube.com/watch?v=cidchWg74Y4" "https://www.youtube.com/watch?v=cidchWg74Y4"))
         (li "Alex Miller @puredanger - Thanks for inspiration from CodeMash \"Thinking in Data\" talk" )
-        (li "Board game info from: " (a :href "http://boardgamegeek.com/" "http://boardgamegeek.com/"))))))
+        (li "Board game info from: " (a :href "http://boardgamegeek.com/" "http://boardgamegeek.com/"))
+        (li "Grimoire - ClojureDocs alternative: " (a :href "grimoire.arrdem.com" "http://grimoire.arrdem.com"))))))
 
