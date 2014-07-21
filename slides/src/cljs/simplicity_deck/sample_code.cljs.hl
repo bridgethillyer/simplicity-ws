@@ -470,8 +470,8 @@
     (def people '(dorian brian keith))
     (map :age people)
 
-    (keys people)
-    (vals people)
+    (keys dorian)
+    (vals dorian)
 
     ;;}}
     ))

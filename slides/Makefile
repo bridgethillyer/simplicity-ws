@@ -1,5 +1,5 @@
 REPO := $(shell git config --get remote.origin.url)
-GH_PAGES = .gh-pages
+GH_PAGES = ../../gh-pages/simplicity-ws
 
 all: src/clj/sample_code.clj
 
@@ -15,7 +15,7 @@ publish: production
 		git add . && \
 		git commit --message="Publish @$$(date)"
 	cd $(GH_PAGES) && \
-		git push origin gh-pages
+		git push 
 
 clean:
 	rm -rf $(GH_PAGES) resources/public target/stale target/classes src/clj/sample_code.clj
