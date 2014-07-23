@@ -31,7 +31,7 @@
     (slide :title "Lists"
       (ul
         (li "Linked list")
-        (li "Fast insert and remove (at end) operations")
+        (li "Fast insert and remove (at front) operations")
         (li "Syntax:"))
       (sample-code/show-lists)
       (notes "Linked list literals are not typical, so you probably don't have one in your language"
