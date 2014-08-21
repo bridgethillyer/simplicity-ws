@@ -1,12 +1,12 @@
 #!/usr/bin/env boot
 
-#tailrecursion.boot.core/version "2.5.0"
+#tailrecursion.boot.core/version "2.5.1"
 
 (set-env!
   :project      'simplicity-ws
   :version      "0.1.0-SNAPSHOT"
-  :dependencies '[[tailrecursion/boot.task   "2.2.1"]
-                  [tailrecursion/hoplon      "5.10.12"]
+  :dependencies '[[tailrecursion/boot.task   "2.2.4"]
+                  [tailrecursion/hoplon      "5.10.22"]
                   [tailrecursion/boot.ring   "0.2.1"]
                   [tailrecursion/boot.notify "2.0.2"]]
   :out-path     "resources/public"

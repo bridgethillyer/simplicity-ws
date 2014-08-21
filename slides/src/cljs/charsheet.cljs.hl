@@ -93,8 +93,8 @@
 
 (defn attr-input
   [attr]
-  [(td (input :id (str attr) :type "text" :value (attr @attrs) :on-change #(swap! attrs assoc attr (int (val-id (str attr))))))
-   (td (span :class "bonus" (text @(cell= (format-bonus (attr-bonuses attr))))))])
+  [(td (input :id attr :type "text" :value (cell= (attr attrs)) :input #(swap! attrs assoc attr (int @%))))
+   (td (span :class "bonus" (text "~(format-bonus (attr-bonuses attr))")))])
 
 (html
   (head
@@ -111,12 +111,12 @@
               :class "large-12 columns"
               (tr
                (th (label :for "level" :class "inline right" "Level"))
-               (td (input :id "level" :type "text" :do-value level :on-change #(reset! level (int (val-id "level")))))
+               (td (input :id "level" :type "text" :value level :change #(reset! level (int @%))))
                (th (label :for "class" :class "inline right" "Class"))
                (td (select
                     :id "class"
-                    :do-value class
-                    :on-change #(reset! class (val-id "class"))
+                    :value class
+                    :change #(reset! class @%)
                     (option :value "fighter" "Fighter")
                     (option :value "cleric" "Cleric")
                     (option :value "magic-user" "Magic-User")
@@ -152,29 +152,27 @@
            (th (label :for "weapon" :class "inline right" "Weapon"))
            (td (select
                 :id "weapon"
-                :do-value weapon
-                :on-change #(reset! weapon (val-id "weapon"))
+                :value weapon
+                :change #(reset! weapon @%)
                 (loop-tpl :bindings [weapon (cell= (get-in classes [class :weapons]))]
                           (option weapon)))))
           (tr
            (th (label :for "armor" :class "inline right" "Armor"))
            (td (select
                 :id "armor"
-                :do-value armor
-                :on-change #(reset! armor (val-id "armor"))
+                :value armor
+                :change #(reset! armor @%)
                 (loop-tpl :bindings [armor (cell= (get-in classes [class :armor]))]
                           (option armor)))))
           (tr
            (td (span :class "right" "THAC0 (melee)"))
-           (td (text @(cell= (- thac0
-                                (attr-bonuses :str))))))
+           (td (text "~(- thac0 (attr-bonuses :str))")))
           (tr
            (td (span :class "right" "THAC0 (missile)"))
-           (td (text @(cell= (- thac0
-                                (attr-bonuses :dex))))))
+           (td (text "~(- thac0 (attr-bonuses :dex))")))
           (tr
            (td (span :class "right" "Armor Class"))
-           (td (text @(cell= armor-class))))
+           (td (text "~{armor-class}")))
           (tr
            (td (span :class "right" (text "Damage (~{weapon})")))
-           (td (text @(cell= weapon-damage-text)))))))))
+           (td (text "~{weapon-damage-text}"))))))))
